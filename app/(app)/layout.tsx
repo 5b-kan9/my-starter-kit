@@ -1,10 +1,9 @@
-import type { ReactNode } from "react";
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import { AppTopbar } from "@/components/layout/app-topbar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 // 앱 레이아웃: 사이드바 + 상단바 + 본문
-export default function AppLayout({ children }: { children: ReactNode }) {
+export default function AppLayout({ children }: LayoutProps<"/">) {
   return (
     <SidebarProvider>
       <AppSidebar />
