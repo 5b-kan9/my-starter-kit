@@ -38,6 +38,14 @@ App Router 라우트 그룹 3개가 각각 다른 레이아웃 골격을 가진�
 
 폼은 react-hook-form + zod + `@hookform/resolvers`, 훅은 `usehooks-ts`, 토스트는 sonner를 사용한다. 경로 별칭은 `@/*`.
 
+## Slack 알림 훅
+
+권한 요청(`Notification` / `permission_prompt`)과 작업 완료(`Stop`) 시 Slack 웹훅으로 모바일 알림을 보낸다.
+
+- 훅 등록: `.claude/settings.json`, 스크립트: `.claude/hooks/slack-notify.mjs` (Node, 한국어 메시지)
+- 웹훅 URL: 루트 `.env`의 `SLACK_WEBHOOK_URL` (`.env*`는 gitignore 대상, 커밋 금지). 스크립트가 `.env`를 직접 로드하며, 없으면 알림 없이 조용히 종료한다.
+- 테스트: `echo '{"hook_event_name":"Stop","last_assistant_message":"테스트"}' | node .claude/hooks/slack-notify.mjs`
+
 ## shadcn 컴포넌트 추가
 
 ```bash
